@@ -1,0 +1,153 @@
+#login-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100% - 145px);
+  padding-bottom: 45px;
+  margin-bottom: -35px;
+  flex-direction: column;
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+.login-card-container {
+  margin-bottom: -45px;
+  padding-bottom: 45px;
+  justify-content: center;
+  align-items: center;
+  min-width: 50rem;
+}
+
+.loginContainer {
+  margin: 0 auto;
+
+  .merlin-textbox {
+    width: 100% !important;
+  }
+}
+
+.logo {
+  width: 100%;
+  height: 130px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 20px auto;
+  background-position: center;
+}
+
+.header {
+  margin: 0 0 20px 0;
+  font-weight: bold;
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: left;
+  margin: 10px 0;
+}
+
+.banner {
+  hr {
+    border: 0;
+    height: 1px;
+    width: 60%;
+    margin-top: 0;
+    margin-bottom: 21px;
+    // background-image: -webkit-linear-gradient(
+    //   left,
+    //   rgba(0, 0, 0, 0),
+    //   rgba(0, 0, 0, 0.75),
+    //   rgba(0, 0, 0, 0)
+    // );
+  }
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  min-height: 300px;
+  visibility: hidden;
+}
+
+.action-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    margin: 15px;
+  }
+}
+
+.form-group,
+.expire-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  em {
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+
+    &.disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+      color: #ccc;
+    }
+  }
+}
+
+.tokenValue {
+  max-width: 360px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 15px;
+  color: #004f71;
+}
+
+.expire-row {
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.expire-row > div {
+  margin: 15px;
+}
+
+.title-oidc {
+  text-align: center;
+}
+
+.show {
+  visibility: visible;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}

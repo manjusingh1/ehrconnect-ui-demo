@@ -1,0 +1,29 @@
+<div class="dash-board">
+  <div>
+    <div class="user-profile">
+      <div class="profile-card">
+        <div class="profile-header">
+          <div
+            class="profile-avatar"
+            [ngStyle]="{ 'background-image': 'url(' + user.profilePic + ')' }"
+          ></div>
+          <div class="profile-info">
+            <h2>{{ user.name }}</h2>
+            <h4>{{ user.email }}</h4>
+          </div>
+        </div>
+        <hr />
+        <div class="profile-content items">
+          <p><strong>Username:</strong> {{ user.username }}</p>
+          <p><strong>Phone:</strong> {{ user.phone }}</p>
+          <p><strong>Address:</strong> {{ user.address }}</p>
+        </div>
+        <hr />
+        <!-- <div class="profile-actions">
+          <button class="btn">Edit Profile</button>
+          <button class="btn btn-warn">Delete Profile</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

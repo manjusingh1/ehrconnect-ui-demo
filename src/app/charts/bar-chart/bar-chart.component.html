@@ -1,0 +1,76 @@
+<div class="bar-chart-container">
+  <div class="bar-chart-heading">
+    <div class="chart-heading">Overall Clinics Status</div>
+
+    <div style="height: 2.5rem">
+      <form [formGroup]="dateForm" class="date">
+        <mat-form-field appearance="outline">
+          <mat-label>Start Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="startPicker"
+            formControlName="startDate"
+            (dateChange)="filterData()"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="startPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #startPicker></mat-datepicker>
+          <mat-error
+            *ngIf="dateForm.controls['startDate'].hasError('invalidDateRange')"
+          >
+            Start date must be less than end date
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>End Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="endPicker"
+            formControlName="endDate"
+            (dateChange)="filterData()"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="endPicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #endPicker></mat-datepicker>
+          <mat-error
+            *ngIf="dateForm.controls['endDate'].hasError('invalidDateRange')"
+          >
+            End date must be greater than start date
+          </mat-error>
+        </mat-form-field>
+        <div>
+          <button (click)="filterData()" mat-mini-fab type="submit">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div
+    [ngClass]="
+      currentRoute === '/bam/dash-board' ? 'wrapper' : 'by-clinic-wrapper'
+    "
+  >
+    <canvas
+      *ngIf="barChartData.datasets[0]?.data?.length"
+      class="chart"
+      baseChart
+      [data]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [type]="barChartType"
+    >
+    </canvas>
+    <div class="no-data" *ngIf="!barChartData.datasets[0]?.data?.length">
+      No Data found for selected date range
+    </div>
+  </div>
+  <div class="chart-count">
+    <app-chart-count [chartCountData]="barChartCountData"></app-chart-count>
+  </div>
+</div>

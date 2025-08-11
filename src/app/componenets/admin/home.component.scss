@@ -1,0 +1,64 @@
+// regular style toast
+@import "ngx-toastr/toastr";
+
+.home-container {
+  padding: 1rem;
+
+  .heading {
+    font-weight: 600;
+  }
+
+  // .action-buttons {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+
+  .mat-mdc-raised-button {
+    background-color: #03a9f4 !important;
+    float: right;
+    color: #ffffff !important;
+    margin-bottom: 1rem;
+  }
+}
+
+::ng-deep .mat-mdc-row .mat-mdc-cell {
+  cursor: pointer;
+}
+
+// ::ng-deep {
+//   .action-buttons mat-form-field {
+//     height: 5rem !important;
+//     zoom: 0.7 !important;
+//     width: 25rem !important;
+//   }
+// }
+
+::ng-deep {
+  .action-buttons mat-form-field {
+    height: 5rem !important;
+    zoom: 0.7 !important;
+    width: 25rem !important;
+  }
+
+  .mat-mdc-table tbody,
+  .mat-mdc-table tfoot,
+  .mat-mdc-table thead,
+  .mat-mdc-cell,
+  .mat-mdc-footer-cell,
+  .mat-mdc-header-row,
+  .mat-mdc-row,
+  .mat-mdc-footer-row,
+  .mat-mdc-table .mat-mdc-header-cell {
+    background: inherit;
+    zoom: 0.95;
+    font-size: 16px;
+  }
+
+  .mat-mdc-table thead {
+    background: #03a9f4 !important;
+  }
+
+  .mat-mdc-table thead tr {
+    color: #ffffff !important;
+  }
+}

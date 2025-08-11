@@ -1,0 +1,83 @@
+<div class="line-chart-container">
+  <div class="chart-header">
+    <span class="chart-heading"> Live Status</span>
+
+    <section class="top-section">
+      <mat-button-toggle-group aria-label="Font Style" class="small-btn-toggle">
+        <mat-button-toggle
+          (click)="setTimeRange('1D')"
+          value="bold"
+          [disableRipple]="true"
+          class="selected"
+        >
+          1D
+        </mat-button-toggle>
+        <mat-button-toggle
+          (click)="setTimeRange('3D')"
+          value="bold"
+          [disableRipple]="true"
+          class="selected"
+        >
+          3D
+        </mat-button-toggle>
+        <mat-button-toggle
+          (click)="setTimeRange('5D')"
+          value="bold"
+          [disableRipple]="true"
+          class="selected"
+        >
+          5D
+        </mat-button-toggle>
+        <mat-button-toggle
+          (click)="setTimeRange('1M')"
+          value="italic"
+          [disableRipple]="true"
+          class="selected"
+        >
+          1M
+        </mat-button-toggle>
+        <mat-button-toggle
+          (click)="setTimeRange('1Y')"
+          value="underline"
+          [disableRipple]="true"
+          class="selected"
+        >
+          1Y
+        </mat-button-toggle>
+        <!-- <mat-button-toggle
+        (click)="setTimeRange('ALL')"
+        value="underline"
+        [disableRipple]="true"
+        class="selected"
+      >
+        ALL
+      </mat-button-toggle> -->
+      </mat-button-toggle-group>
+    </section>
+  </div>
+
+  <!-- Chart Canvas -->
+  <div
+    [ngClass]="
+      currentRoute === '/bam/dash-board' ? 'wrapper' : 'by-clinic-wrapper'
+    "
+  >
+    <canvas
+      *ngIf="lineChartData.datasets[0]?.data?.length"
+      class="chart"
+      baseChart
+      [data]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend"
+      [type]="lineChartType"
+    >
+    </canvas>
+    <div class="no-data" *ngIf="!lineChartData.datasets[0]?.data?.length">
+      No Data found
+    </div>
+  </div>
+  <div class="chart-count">
+    <app-chart-count [chartCountData]="lineChartCountData"></app-chart-count>
+  </div>
+</div>

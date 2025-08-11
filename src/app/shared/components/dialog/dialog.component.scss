@@ -1,0 +1,28 @@
+// ::ng-deep {
+//   ._mat-animation-noopable .mat-mdc-dialog-inner-container {
+//     // height: 47rem !important;
+//     // width: 47rem;
+//   }
+// }
+
+::ng-deep {
+  .mat-mdc-dialog-container {
+    height: auto !important;
+  }
+
+  .dialog-container {
+    .mat-mdc-form-field-subscript-wrapper,
+    .mat-mdc-form-field-bottom-align::before {
+      display: none !important;
+    }
+  }
+}
+
+::ng-deep {
+  .center .mat-mdc-form-field {
+    // height: 5rem !important;
+    // zoom: 0.7 !important;
+    --mat-form-field-container-height: 41px;
+    --mat-form-field-container-vertical-padding: 8px;
+  }
+}

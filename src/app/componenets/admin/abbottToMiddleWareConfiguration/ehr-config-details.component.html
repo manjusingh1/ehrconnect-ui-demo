@@ -1,0 +1,128 @@
+<div class="ehr-config-details-container">
+  <div class="hf-patient-overview-title">
+    <div id="popup-div-02">{{ rowData.type }}</div>
+
+    <div class="hf-patient-overview-title-close">
+      <button
+        mat-icon-button
+        id="patient-overview-dialog-close-button"
+        mat-dialog-close
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+  <mat-tab-group (selectedIndexChange)="onTabChange($event)">
+    <mat-tab
+      label="Export"
+      *ngIf="
+        (data.type == 'Export' && rowData.type == 'Edit') ||
+        rowData.type == 'Add'
+      "
+    >
+      <form [formGroup]="appConfigForm" class="app-config-form">
+        <div class="header">
+          <mat-form-field appearance="outline">
+            <mat-label>Abbott App</mat-label>
+            <mat-select
+              required
+              formControlName="abbotAppId"
+              (selectionChange)="onAbbottAppChange($event.value)"
+            >
+              <mat-option
+                *ngFor="let option of getAbbottApp"
+                [value]="option.id"
+              >
+                {{ option.displayName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <app-abbott-app-to-ehr-service-config
+            [rowData]="data"
+            type="export"
+            [selectedAppInfo]="selectedAppInfo"
+            [receivingFacilityDDL]="receivingFacility"
+            [receivingAppCodeDDLEdit]="receivingAppCode"
+            [middleWareDDLEdit]="middleWare"
+            [parentForm]="abbottAppToEhrServiceConfig"
+            [isAbbottAppChange]="isAbbottAppChange$"
+          ></app-abbott-app-to-ehr-service-config>
+        </div>
+        <div>
+          <app-ehr-service-to-middleware-config
+            [parentForm]="ehrServiceToMiddlewareConfig"
+            type="export"
+          ></app-ehr-service-to-middleware-config>
+        </div>
+        <div class="buttons">
+          <button mat-raised-button mat-dialog-close>Cancel</button>
+          <button
+            mat-raised-button
+            [disabled]="!appConfigForm.valid"
+            (click)="onSave('export')"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </mat-tab>
+    <mat-tab
+      label="Import"
+      *ngIf="
+        (data.type == 'Import' && rowData.type == 'Edit') ||
+        rowData.type == 'Add'
+      "
+    >
+      <form [formGroup]="appConfigForm" class="app-config-form">
+        <div class="header">
+          <mat-form-field appearance="outline">
+            <mat-label>Abbott App</mat-label>
+            <mat-select
+              required
+              formControlName="abbotAppId"
+              (selectionChange)="onAbbottAppChange($event.value)"
+            >
+              <mat-option
+                *ngFor="let option of getAbbottApp"
+                [value]="option.id"
+              >
+                {{ option.displayName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <app-abbott-app-to-ehr-service-config
+            [rowData]="data"
+            type="import"
+            [selectedAppInfo]="selectedAppInfo"
+            [receivingFacilityDDL]="receivingFacility"
+            [receivingAppCodeDDLEdit]="receivingAppCode"
+            [middleWareDDLEdit]="middleWare"
+            [parentForm]="abbottAppToEhrServiceConfig"
+            [isAbbottAppChange]="isAbbottAppChange$"
+          ></app-abbott-app-to-ehr-service-config>
+        </div>
+        <div>
+          <app-ehr-service-to-middleware-config
+            type="import"
+            [parentForm]="ehrServiceToMiddlewareConfig"
+          ></app-ehr-service-to-middleware-config>
+        </div>
+        <div class="buttons">
+          <button mat-raised-button mat-dialog-close>Cancel</button>
+          <button
+            mat-raised-button
+            [disabled]="!appConfigForm.valid"
+            (click)="onSave('import')"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</div>

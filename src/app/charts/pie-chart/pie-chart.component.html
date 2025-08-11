@@ -1,0 +1,48 @@
+<div class="pie-chart-container">
+  <div class="pie-chart-header">
+    <div class="chart-heading">By Status</div>
+    <div class="date">
+      <mat-form-field appearance="outline">
+        <mat-label>Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="startPicker"
+          [(ngModel)]="startDate"
+          (dateChange)="filterData()"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="startPicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button
+          (click)="filterData()"
+          mat-mini-fab
+          class="refresh"
+          type="submit"
+        >
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <canvas
+      *ngIf="pieChartData.datasets[0]?.data?.length"
+      baseChart
+      [data]="pieChartData"
+      [type]="pieChartType"
+      [options]="pieChartOptions"
+    >
+    </canvas>
+    <div class="no-data" *ngIf="!pieChartData.datasets[0]?.data?.length">
+      No Data found for selected date
+    </div>
+  </div>
+  <div class="chart-count">
+    <app-chart-count [chartCountData]="pieChartCountData"></app-chart-count>
+  </div>
+</div>

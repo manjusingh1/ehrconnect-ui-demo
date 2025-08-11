@@ -1,0 +1,159 @@
+<fieldset>
+  <!-- <legend>Abbott App to EHR Service Config</legend> -->
+  <div *ngIf="type === 'export'" style="margin-top: 10px; font-weight: 600">
+    Abbott App to EHR Connect Config
+  </div>
+  <div *ngIf="type === 'import'" style="margin-top: 10px; font-weight: 600">
+    Middleware to EHR Connect Config
+  </div>
+  <div [formGroup]="parentForm" class="form-group">
+    <div class="center" *ngIf="type === 'export'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Sending Facility</mat-label>
+        <input matInput formControlName="sendingFacility" required />
+      </mat-form-field>
+    </div>
+    <div class="center" *ngIf="type === 'import'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Receiving Facility</mat-label>
+        <input matInput formControlName="receivingFacility" required />
+      </mat-form-field>
+    </div>
+    <div class="center" *ngIf="type === 'export'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Sending App</mat-label>
+        <input matInput formControlName="sendingApp" required />
+      </mat-form-field>
+    </div>
+    <div class="center" *ngIf="type === 'import'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Receiving App</mat-label>
+        <input matInput formControlName="receivingApp" required />
+      </mat-form-field>
+    </div>
+    <div class="center" *ngIf="type === 'export'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Receiving Facility</mat-label>
+        <mat-select
+          formControlName="receivingFacility"
+          (selectionChange)="onReceivingFacilityChange($event.value)"
+          required
+        >
+          <mat-option
+            *ngFor="let option of receivingFacilityDDL"
+            [value]="option.reveivingFacilityCode"
+          >
+            {{ option.reveivingFacility }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="center" *ngIf="type === 'import'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Sending Facility</mat-label>
+        <mat-select
+          formControlName="sendingFacility"
+          (selectionChange)="onReceivingFacilityChange($event.value)"
+          required
+        >
+          <mat-option
+            *ngFor="let option of receivingFacilityDDL"
+            [value]="option.reveivingFacilityCode"
+          >
+            {{ option.reveivingFacility }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="center" *ngIf="type === 'export'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Receiving App</mat-label>
+        <mat-select
+          formControlName="receivingApp"
+          (selectionChange)="onReceivingApplicationChange($event.value)"
+          required
+        >
+          <mat-option
+            *ngFor="let option of receivingAppCodeDDLEdit"
+            [value]="option.reveivingAppCode"
+          >
+            {{ option.recevingApp }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="center" *ngIf="type === 'import'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Sending App</mat-label>
+        <mat-select
+          formControlName="sendingApp"
+          (selectionChange)="onReceivingApplicationChange($event.value)"
+          required
+        >
+          <mat-option
+            *ngFor="let option of receivingAppCodeDDLEdit"
+            [value]="option.reveivingAppCode"
+          >
+            {{ option.recevingApp }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="center">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Middleware</mat-label>
+        <mat-select
+          formControlName="mwId"
+          (selectionChange)="onMiddlewareChange($event.value)"
+          required
+        >
+          <mat-option
+            *ngFor="let option of middleWareDDLEdit"
+            [value]="option.middleWareCode"
+          >
+            {{ option.middleWareName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="center" *ngIf="type === 'export'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>OAuth URL</mat-label>
+        <input matInput formControlName="receiverOauthUrl" required />
+      </mat-form-field>
+    </div>
+    <div class="center">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Message Format</mat-label>
+        <mat-select formControlName="messageFormat" required>
+          <mat-option
+            *ngFor="let option of messageFormatDDL"
+            [value]="option.id"
+          >
+            {{ option.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="center">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Version</mat-label>
+        <mat-select formControlName="jsonVersion" required>
+          <mat-option *ngFor="let option of jsonVersionDDL" [value]="option.id">
+            {{ option.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="center">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Message Type</mat-label>
+        <mat-select formControlName="messageType" required>
+          <mat-option *ngFor="let option of messageTypeDDL" [value]="option.id">
+            {{ option.value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</fieldset>

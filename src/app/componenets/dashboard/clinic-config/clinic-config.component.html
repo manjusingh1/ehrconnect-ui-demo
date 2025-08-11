@@ -1,0 +1,32 @@
+<div class="dash-board">
+  <div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-checkbox
+        color="primary"
+        (change)="toggleSelectAll()"
+        [checked]="selectAllChecked"
+      >
+        Select All
+      </mat-checkbox>
+      <hr />
+      <div class="items" formArrayName="items">
+        <div
+          *ngFor="let item of items.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <mat-checkbox
+            color="primary"
+            formControlName="isChecked"
+            (change)="updateSelectAllState()"
+          >
+            {{ items.at(i).value.customerName }}
+          </mat-checkbox>
+        </div>
+      </div>
+      <hr />
+      <div class="submit-button">
+        <button mat-raised-button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

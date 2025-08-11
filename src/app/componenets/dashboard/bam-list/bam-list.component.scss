@@ -1,0 +1,356 @@
+@use "@angular/material" as mat;
+
+// Mixin for flex display
+@mixin flex-display($justify: flex-start, $align: stretch) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Mixin for grid display
+@mixin grid-display($columns: 1fr) {
+  display: grid;
+  grid-template-columns: $columns;
+}
+
+// Mixin for setting size
+@mixin size($width: auto, $height: auto) {
+  width: $width;
+  height: $height;
+}
+
+.dash-board {
+  @include grid-display(35% 35% 30%);
+  margin: auto;
+  margin-top: 0.5rem;
+
+  .end {
+    margin-right: 1rem !important;
+  }
+
+  @media (max-width: 1200px) {
+    @include grid-display(repeat(2, 1fr));
+  }
+
+  @media (max-width: 768px) {
+    @include grid-display(1fr);
+  }
+}
+
+.list-container {
+  padding: 0 !important;
+  margin: 1rem 2rem 0 4rem;
+}
+
+.bottom.dash-board {
+  @include grid-display(100%);
+  margin: auto;
+}
+
+.ehr-logo {
+  @include flex-display(center, center);
+  gap: 1rem;
+}
+
+::ng-deep {
+  .mat-mdc-tab-body.mat-mdc-tab-body-active {
+    padding: 1rem;
+  }
+}
+
+.demo-table {
+  margin-right: 2rem;
+  zoom: 0.9;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden !important;
+}
+
+.demo-table-1 {
+  zoom: 1 !important;
+}
+
+hr {
+  margin: 0 !important;
+}
+
+::ng-deep {
+  .mat-mdc-header-row {
+    height: 3rem !important;
+    color: #ffffff !important;
+    background: #03a9f4 !important;
+  }
+}
+
+::ng-deep {
+  .mat-mdc-table tbody,
+  .mat-mdc-table tfoot,
+  .mat-mdc-table thead,
+  .mat-mdc-cell,
+  .mat-mdc-footer-cell,
+  .mat-mdc-header-row,
+  .mat-mdc-row,
+  .mat-mdc-footer-row,
+  .mat-mdc-table .mat-mdc-header-cell {
+    --mat-table-row-item-container-height: 2.5rem;
+    font-size: medium;
+  }
+}
+
+.sub-dash-board {
+  @include flex-display(space-between);
+  height: 15%;
+}
+
+.dash-board > .list-container {
+  background: ghostwhite;
+  padding: 10px 10px 0 10px;
+  border-radius: 20px;
+  margin: 0.5rem;
+  box-shadow:
+    0 4px 10px 10px rgb(0 0 0 / 6%),
+    0 6px 7px 0px #03a9f48a !important;
+}
+
+.dash-board > .list-container-dialog {
+  background: ghostwhite;
+  border-radius: 0 0 20px 20px;
+  box-shadow:
+    0 4px 10px 10px rgb(0 0 0 / 6%),
+    0 6px 7px 0px #03a9f48a !important;
+}
+
+.dash-board > span {
+  background: #d7ebff;
+  padding: 10px;
+  border-radius: 20px 20px 0 0;
+  box-shadow:
+    0 4px 10px 10px rgb(0 0 0 / 6%),
+    0 6px 7px 0px #03a9f48a !important;
+}
+
+::ng-deep {
+  .mat-mdc-cell {
+    --mat-table-row-item-container-height: 10px;
+  }
+}
+
+::ng-deep {
+  .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs
+    > .mat-mdc-tab-header
+    .mat-mdc-tab {
+    font-size: 1.5rem;
+    border: 1px solid black;
+    font-weight: 600;
+  }
+}
+
+.status-button {
+  @include flex-display(space-evenly);
+  gap: 0.5rem;
+}
+
+.success-button {
+  background-color: #6fe871;
+  color: black;
+}
+
+.failure-button {
+  background-color: #ff6384;
+  color: black;
+}
+
+.in-progress-button {
+  background-color: #ffce56;
+  color: black;
+}
+
+::ng-deep
+  .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs
+  > .mat-mdc-tab-header
+  .mat-mdc-tab {
+  width: 33.33% !important;
+}
+
+.center {
+  zoom: 0.9;
+  @include flex-display(space-around);
+  line-height: 3rem;
+
+  .over-all {
+    border-right: 1px solid;
+  }
+}
+
+.paginator {
+  border-top: 1px solid gray;
+  @include flex-display(space-between, center);
+  margin-left: 1rem;
+  zoom: 0.9;
+  height: 3.5rem;
+}
+
+::ng-deep {
+  .mat-sort-header-content {
+    gap: 10px;
+  }
+
+  .mat-mdc-mini-fab.mat-accent {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  .mat-mdc-table {
+    // background: none !important;
+    // min-height: 85%;
+  }
+
+  .mat-mdc-tab-header {
+    zoom: 0.8;
+    margin: auto;
+    background: #ffffff;
+  }
+}
+
+.in-progress {
+  color: rgb(201, 201, 23);
+}
+
+.abbott-icon {
+  height: 20px !important;
+}
+
+@media (max-width: 1400px) and (min-width: 768px) {
+  .dash-board > .odd {
+    grid-column: span 2;
+  }
+
+  .dash-board > .even {
+    grid-column: span 1;
+  }
+}
+
+.content-container {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 70px;
+}
+
+.mat-toolbar {
+  @include flex-display(space-between);
+}
+
+.mat-list-item {
+  @include flex-display(center, center);
+}
+
+.mat-list-item button {
+  @include flex-display(center, center);
+  width: 100%;
+}
+
+.mat-list-item mat-icon {
+  margin-right: 8px;
+}
+
+.nav-header-container-1 {
+  .navbar-1 {
+    height: 3rem;
+    @include flex-display(space-between, center);
+    padding: 0;
+    color: #000000;
+
+    .navbar-brand-1 {
+      @include flex-display(center, center);
+      gap: 0.5rem;
+
+      .logo {
+        padding: 17px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .border-radius {
+    border-radius: 0;
+    cursor: pointer;
+    color: #000000 !important;
+    font-size: 16px;
+  }
+
+  .mat-mdc-button.active {
+    background-color: #009cde;
+  }
+
+  .user-avatar {
+    @include flex-display(center, center);
+    gap: 0.5rem;
+  }
+}
+
+.nav-header-container {
+  .navbar {
+    background: #004f71;
+    padding: 0;
+    color: white;
+    align-items: center;
+
+    .navbar-brand {
+      @include flex-display(center, center);
+
+      .logo {
+        padding: 17px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .border-radius:hover {
+    background-color: #009cde;
+  }
+
+  .border-radius {
+    border-radius: 0;
+    cursor: pointer;
+    color: white !important;
+    font-size: 16px;
+    width: 20%;
+    border-right: 1px solid black;
+  }
+
+  .mat-mdc-button.active {
+    background-color: #009cde;
+  }
+}
+
+.close-button {
+  float: right;
+  top: -17px;
+  right: -15px;
+}
+
+.close-icon {
+  transition: 1s ease-in-out;
+}
+
+.close-icon:hover {
+  transform: rotate(180deg);
+}
+
+.dialog {
+  @include flex-display(space-between, center);
+}
+
+::ng-deep {
+  .dialog .mat-mdc-form-field-subscript-wrapper {
+    height: 0;
+  }
+}

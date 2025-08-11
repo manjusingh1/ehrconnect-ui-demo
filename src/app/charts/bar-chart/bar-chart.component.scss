@@ -1,0 +1,68 @@
+.bar-chart-container {
+  height: 85%;
+  display: grid;
+
+  .chart-count {
+    border-top: 1px solid grey;
+  }
+}
+
+.date {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 17rem;
+  align-items: start;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent !important;
+}
+
+.bar-chart-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.no-data {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep {
+  mat-form-field {
+    // height: 5rem !important;
+    zoom: 0.7 !important;
+  }
+}
+
+:host ::ng-deep .by-clinic-wrapper {
+  height: calc(100vh - 13rem);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+:host ::ng-deep .wrapper {
+  height: 14rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+:host ::ng-deep .chart {
+  width: 100% !important;
+}
+
+::ng-deep {
+  .date .mat-mdc-form-field {
+    height: 5rem !important;
+    zoom: 0.6 !important;
+    width: 12rem;
+    font-size: larger;
+  }
+
+  .mat-mdc-mini-fab.mat-accent {
+    --mdc-fab-small-container-color: #03a9f4 !important;
+  }
+}

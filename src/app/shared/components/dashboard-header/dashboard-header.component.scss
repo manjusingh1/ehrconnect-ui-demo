@@ -1,0 +1,138 @@
+.nav-header-container-1 {
+  .navbar-1 {
+    // gap: 1rem;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    // background: #ffffff;
+    // width: 99%;
+    padding-left: 10px;
+    color: #000000;
+    align-items: center;
+
+    .navbar-brand-1 {
+      display: flex;
+      align-items: center;
+      gap: 1.3rem;
+
+      .logo {
+        padding: 17px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  // .border-radius:hover {
+  //   background-color: #009cde;
+  // }
+
+  .border-radius {
+    border-radius: 0px;
+    cursor: pointer;
+    color: #000000 !important;
+    font-size: 16px;
+  }
+
+  .mat-mdc-button.active {
+    background-color: #03a9f4;
+    color: #ffffff;
+  }
+
+  .user-avatar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.nav-header-container {
+  width: 99%;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 10px 10px rgba(0, 0, 0, 0.06),
+    0 6px 7px 0px #03a9f48a !important;
+  .navbar {
+    // gap: 1rem;
+    zoom: 0.8;
+    // background: #e0d1f5;
+    // background-image: linear-gradient(
+    //   135deg,
+    //   #b8dbfe 0%,
+    //   #cdaaed 33%,
+    //   #7fd6ed 66%,
+    //   #ffffff 100%
+    // );
+    background-color: #b8dbfe57;
+    padding: 0px;
+    color: white;
+    // display: flex;
+    // justify-content: space-between;
+    align-items: center;
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+
+      .logo {
+        padding: 17px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .border-radius:hover {
+    background-color: #03a9f4;
+    color: #ffffff;
+  }
+
+  .border-radius {
+    border-radius: 0px;
+    cursor: pointer;
+    // color: white !important;
+    font-size: 16px;
+    width: 20%;
+    border-right: 1px solid #03a9f4;
+    // padding: 2rem;
+    // height: 4rem !important;
+  }
+
+  .mat-mdc-button.active {
+    background-color: #03a9f4;
+    color: #ffffff;
+  }
+}
+
+.content-container {
+  // min-height: 100vh;
+  box-sizing: border-box;
+  // padding: 25px;
+  padding-left: 75px !important;
+}
+
+// override material inline style to allow mini nav state
+mat-sidenav[style] {
+  visibility: visible !important;
+  top: 3rem !important;
+  background-color: #b8dbfe57;
+  // background-image: linear-gradient(
+  //   135deg,
+  //   #b8dbfe 0%,
+  //   #cdaaed 33%,
+  //   #7fd6ed 66%,
+  //   #ffffff 100%
+  // );
+  box-shadow: 0 4px 20px rgba(123, 94, 222, 0.3);
+}
+
+.sign-out {
+  background: #03a9f4 !important;
+  color: #ffffff !important;
+}
+
+.mat-drawer {
+  transform: none !important;
+}

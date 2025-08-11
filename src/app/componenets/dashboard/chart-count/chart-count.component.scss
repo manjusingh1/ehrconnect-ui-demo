@@ -1,0 +1,32 @@
+.sub-dash-board {
+  display: flex;
+  justify-content: space-between;
+}
+
+.success-1 {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  justify-content: center;
+  width: 42.33%;
+  zoom: 0.9;
+}
+
+.success-1:not(:last-child) {
+  padding: 10px;
+  border-right: 1px solid;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  justify-content: center;
+  width: 33.33%;
+  zoom: 0.9;
+}
+
+.in-progress {
+  color: black;
+  color: #ffce56;
+}

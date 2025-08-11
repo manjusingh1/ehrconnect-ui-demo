@@ -1,0 +1,52 @@
+.bam-list-dialog-container {
+  background: none !important;
+  .hf-patient-overview {
+    &-title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      color: white;
+      background-color: #b8dbfe57;
+      background: #03a9f4 !important;
+      font-family: "Roboto";
+
+      .mat-mdc-icon-button.mat-mdc-button-base {
+        --mdc-icon-button-state-layer-size: 2rem;
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+      }
+
+      &-close {
+        display: flex;
+        align-items: center;
+        height: 2rem;
+      }
+    }
+  }
+
+  .close-button {
+    float: right;
+    top: -17px;
+    right: -15px;
+  }
+
+  .close-icon {
+    transition: 1s ease-in-out;
+  }
+
+  .close-icon:hover {
+    transform: rotate(180deg);
+  }
+}
+
+::ng-deep {
+  .mat-mdc-dialog-surface {
+    width: 100%;
+    height: 100%;
+    background: none !important;
+    box-shadow: none !important;
+  }
+}

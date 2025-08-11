@@ -1,0 +1,63 @@
+<header class="nav-header-container-1">
+  <div class="navbar-1">
+    <div class="navbar-brand-1">
+      <mat-icon class="mat-icon-rtl-mirror">calendar_today</mat-icon>
+      <span>{{ currentDate }}</span>
+    </div>
+    <div>
+      @for (item of navItems1; track item.label) {
+        <button
+          mat-button
+          class="border-radius"
+          [routerLink]="item.link"
+          routerLinkActive="active"
+          disabled="{{ item.icon == 'user' ? 'false' : 'true' }}"
+        >
+          <mat-icon *ngIf="item.icon !== 'teams'" class="mat-icon-rtl-mirror">{{
+            item.icon
+          }}</mat-icon>
+          <img
+            *ngIf="item.icon === 'teams'"
+            style="height: 30px"
+            src="teams.png"
+            id="header-logobrandimg-05"
+            alt="teams Logo"
+          />
+          <span class="user-avatar" *ngIf="item.icon === 'user'">
+            <div class="user-name-logo">
+              <img
+                style="
+                  height: 30px;
+                  border-radius: 50%;
+                  border: 2px solid #03a9f4;
+                "
+                src="profile.jpg"
+                alt=""
+              />
+            </div>
+            <span>{{ userProfile.name || "" | uppercase }}</span>
+            <button class="sign-out" mat-raised-button (click)="logout()">
+              SIGN OUT
+            </button>
+          </span>
+        </button>
+      }
+    </div>
+  </div>
+</header>
+
+<header class="nav-header-container">
+  <div class="navbar">
+    @for (item of navItems; track item.label) {
+      <button
+        mat-button
+        class="border-radius"
+        [routerLink]="item.link"
+        routerLinkActive="active"
+      >
+        {{ item.label }}
+      </button>
+    }
+  </div>
+</header>
+<router-outlet></router-outlet>

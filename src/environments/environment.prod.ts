@@ -1,0 +1,38 @@
+export const environment = {
+  production: true,
+  api_url: "#{api-url}#",
+  issuer_url: "#{issuer-url}#",
+  client_id: "#{client-id}#",
+  scope: "#{scope}#",
+  discovery_url: "#{discovery-url}#",
+  changePasswordD2Url: "#{changePasswordD2Url}#",
+  loginMFA: "#{loginMFA}#",
+  scopePermissions: "#{scope-permissions}#",
+  redirectUri: "#{redirect-new-uri}#",
+  authority: "#{authority}#",
+  changePasswordAuthority: "#{change-password-authority}#",
+  loginMFAAuthority: "#{login-mfa-authority}#",
+  knownAuthorities: "#{known-authorities}#",
+  defaultLanguage: "#{default-language}#",
+  logoutRedirectURI: "#{logout-redirect-uri}#",
+  openid: "openid",
+  profile: "profile",
+  XApiVersion: "#{x-api-version}#",
+  forceLogoutURI: "#{force-logout-uri}#",
+  abbottSubscriptionKey: "#{abbottSubscriptionKey}#",
+  clinicianAssetsPath: "#{clinicianAssetsPath}#",
+  // ====For Session idle time extension in Seconds===//
+  sessionIdleTimeExten: "#{sessionIdleTimeExten}#",
+  // ====For Session time out notification in Seconds===//
+  sessionTimeOutNotification: "#{sessionTimeOutNotification}#",
+  am5License: "#{am5License}#",
+  hfsAuthority: "#{hfsAuthority}#",
+  hfsRedirectUri: "#{hfsRedirectUri}#",
+  logoutRedirectPcsAdmin: "#{logoutRedirectPcsAdmin}#",
+  aboutVersion1: "#{aboutVersion1}#",
+  aboutVersion2: "#{aboutVersion2}#",
+  // ====For calling refresh token before it gets expired===//
+  refreshTokenReducedTime: "#{refreshTokenReducedTime}#",
+  // ====Return to support portal url===//
+  spRedirectUrl: "#{spRedirectUrl}#",
+};

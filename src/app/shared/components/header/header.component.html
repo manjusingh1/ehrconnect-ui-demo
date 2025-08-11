@@ -1,0 +1,40 @@
+<header>
+  <mat-toolbar class="header-container">
+    <div class="left-menu" id="header-divmenualign-03">
+      <a
+        (click)="navigateToHome()"
+        class="navbar-brand logo header-click"
+        id="header-logo-04"
+      >
+        <img
+          style="width: 4rem"
+          src="abbott_logo.png"
+          id="header-logobrandimg-05"
+          alt="Abbott Logo"
+        />
+        ABBOTT
+      </a>
+    </div>
+    <div class="mid-menu">Welcome to EHR Connect</div>
+
+    <!-- <a mat-button [routerLink]="['profile']">Profile</a>
+    <div class="right-menu">
+      <button mat-mini-fab class="user-name-logo"></button> {{ userProfile.name || '' }}
+      <button class="sign-out" mat-raised-button (click)="logout()">SIGN OUT</button>
+    </div> -->
+
+    <span class="user-avatar">
+      <button mat-mini-fab class="user-name-logo">
+        <img
+          style="height: 39px; border-radius: 50%"
+          src="profile.jpg"
+          alt=""
+        />
+      </button>
+      <span>{{ userProfile.name || "" | uppercase }}</span>
+      <button class="sign-out" mat-raised-button (click)="logout()">
+        SIGN OUT
+      </button>
+    </span>
+  </mat-toolbar>
+</header>

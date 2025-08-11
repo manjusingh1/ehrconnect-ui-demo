@@ -1,0 +1,58 @@
+.pie-chart-container {
+  height: 85%;
+  display: grid;
+
+  .chart-count {
+    border-top: 1px solid grey;
+  }
+}
+
+.wrapper {
+  height: 14rem;
+  width: 15rem;
+  margin: auto;
+  justify-content: center;
+  display: flex;
+}
+
+:host ::ng-deep .chart {
+  width: 100% !important;
+}
+
+.pie-chart-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.no-data {
+  display: flex;
+  align-items: center;
+}
+
+.date {
+  height: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.refresh {
+  width: 2rem;
+  height: 2rem;
+}
+
+::ng-deep {
+  :host .mat-mdc-mini-fab {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent !important;
+  }
+
+  .mat-mdc-mini-fab.mat-accent {
+    width: 30px !important;
+    height: 30px !important;
+    --mdc-fab-small-container-color: #03a9f4 !important;
+  }
+}

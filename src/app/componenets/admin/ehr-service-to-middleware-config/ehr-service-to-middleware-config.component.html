@@ -1,0 +1,40 @@
+<fieldset>
+  <!-- <legend>EHR Service to Middleware Config</legend> -->
+  <div *ngIf="type == 'export'" style="font-weight: 600">
+    EHR Connect to Middleware Config
+  </div>
+  <div *ngIf="type == 'import'" style="font-weight: 600">EHR Connect to Abbott App Config</div>
+
+  <div [formGroup]="parentForm" class="form-group">
+    <div class="center">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Authority URL</mat-label>
+        <input matInput formControlName="senderVerificationUrl" required />
+      </mat-form-field>
+    </div>
+    <div class="center">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Client Id</mat-label>
+        <input matInput formControlName="senderClientId" required />
+      </mat-form-field>
+    </div>
+    <div class="center">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Secret</mat-label>
+        <input matInput formControlName="senderSecret" required />
+      </mat-form-field>
+    </div>
+    <div class="center" *ngIf="type == 'export'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Middleware URL</mat-label>
+        <input matInput formControlName="receiverUrl" required />
+      </mat-form-field>
+    </div>
+    <div class="center" *ngIf="type == 'import'">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Abbott App URL</mat-label>
+        <input matInput formControlName="receiverUrl" />
+      </mat-form-field>
+    </div>
+  </div>
+</fieldset>

@@ -1,0 +1,8 @@
+{
+  "/socket.io": {
+    "target": "http://localhost:8060",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

@@ -1,0 +1,78 @@
+@use "@angular/material" as mat;
+
+// Mixin for flex display
+@mixin flex-display($justify: flex-start, $align: stretch) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Mixin for setting width and height
+@mixin size($width: auto, $height: auto) {
+  width: $width;
+  height: $height;
+}
+
+.flex {
+  @include flex-display;
+}
+
+.line-chart-container {
+  @include size(auto, 85%);
+  display: grid;
+
+  .chart-count {
+    border-top: 1px solid grey;
+  }
+}
+
+.no-data {
+  @include flex-display(center, center);
+}
+
+.time-range-buttons {
+  @include flex-display;
+  gap: 1rem;
+
+  button {
+    background: none !important;
+  }
+}
+
+.small-btn-toggle {
+  @include mat.button-toggle-density(-4);
+
+  mat-button-toggle {
+    width: 45px; // Adjust the width as needed
+  }
+}
+
+.chart-header {
+  @include flex-display(space-between);
+}
+
+.flex-item {
+  flex-basis: 50%;
+}
+
+:host ::ng-deep .wrapper {
+  @include size(100%, 15rem);
+  @include flex-display(center, center);
+}
+
+:host ::ng-deep .by-clinic-wrapper {
+  @include size(100%, calc(100vh - 12rem));
+  @include flex-display(center, center);
+}
+
+:host ::ng-deep .chart {
+  width: 100% !important;
+}
+
+.date {
+  @include flex-display(space-between);
+}
+
+.top-section {
+  height: 10%;
+}

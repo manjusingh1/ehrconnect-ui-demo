@@ -1,0 +1,16 @@
+<div class="sub-dash-board">
+  <div class="success-1" *ngFor="let count of chartCountData">
+    <div *ngIf="count.category == 'TRAN_STATUS_SUCC'">
+      <span>Success: </span>
+      <span class="text-success">{{ count.statusCount }}</span>
+    </div>
+    <div *ngIf="count.category == 'TRAN_STATUS_FAIL'">
+      <span>Failure: </span>
+      <span class="text-danger">{{ count.statusCount }}</span>
+    </div>
+    <div *ngIf="count.category == 'TRAN_STATUS_PROG'">
+      <span>In Progress: </span>
+      <span class="in-progress">{{ count.statusCount }}</span>
+    </div>
+  </div>
+</div>
