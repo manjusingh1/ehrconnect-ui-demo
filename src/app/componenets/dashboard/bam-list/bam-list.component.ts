@@ -76,7 +76,7 @@ export class BamListComponent {
     },
     {
       columnDef: "abbottAppName",
-      header: "Abbott App Name",
+      header: "App Name",
       cell: (element: any) => `${element.abbottAppName}`,
     },
     {

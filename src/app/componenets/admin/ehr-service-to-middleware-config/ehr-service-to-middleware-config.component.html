@@ -3,7 +3,7 @@
   <div *ngIf="type == 'export'" style="font-weight: 600">
     EHR Connect to Middleware Config
   </div>
-  <div *ngIf="type == 'import'" style="font-weight: 600">EHR Connect to Abbott App Config</div>
+  <div *ngIf="type == 'import'" style="font-weight: 600">EHR Connect to App Name Config</div>
 
   <div [formGroup]="parentForm" class="form-group">
     <div class="center">
@@ -32,7 +32,7 @@
     </div>
     <div class="center" *ngIf="type == 'import'">
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Abbott App URL</mat-label>
+        <mat-label>App Name URL</mat-label>
         <input matInput formControlName="receiverUrl" />
       </mat-form-field>
     </div>
