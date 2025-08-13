@@ -65,7 +65,7 @@ export class AbbottAppToEhrServiceConfigComponent {
           receivingFacility:
             this.type == "export"
               ? this.rowData?.receivingFacilityCode
-              : "ABBOTT",
+              : "ABCFACILITY",
           receivingApp: this.rowData?.receivingAppCode,
           mwId: this.rowData?.mwId?.toString(),
           jsonVersion: "1.0",

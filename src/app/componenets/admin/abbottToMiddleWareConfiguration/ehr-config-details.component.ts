@@ -111,7 +111,7 @@ export class EhrConfigDetailsComponent implements OnDestroy, OnInit {
       type: [""],
       abbottAppToEhrServiceConfig: this.fb.group({
         sendingFacility: [
-          { value: "ABBOTT", disabled: true },
+          { value: "ABCFACILITY", disabled: true },
           Validators.required,
         ],
         sendingApp: [{ value: "", disabled: true }, Validators.required],
@@ -146,7 +146,7 @@ export class EhrConfigDetailsComponent implements OnDestroy, OnInit {
 
       this.appConfigForm.get("abbottAppToEhrServiceConfig")?.patchValue({
         receiverOauthUrl: this.data.receiverOauthUrl,
-        sendingFacility: this.data.sendingFacility || "ABBOTT",
+        sendingFacility: this.data.sendingFacility || "ABCFACILITY",
         sendingApp: this.data.sendingApp,
         sendingAppCode: this.data.sendingAppCode,
         receivingAppCode: this.data.receivingAppCode,
@@ -200,7 +200,7 @@ export class EhrConfigDetailsComponent implements OnDestroy, OnInit {
       configControls.sendingFacility?.enable();
       configControls.sendingApp?.enable();
       configControls.receivingFacility?.disable();
-      configControls.receivingFacility?.setValue("ABBOTT");
+      configControls.receivingFacility?.setValue("ABCFACILITY");
       configControls.receivingApp?.disable();
 
       // Clear validators for URLs
@@ -210,7 +210,7 @@ export class EhrConfigDetailsComponent implements OnDestroy, OnInit {
         },
       );
     } else if (this.selectedTabIndex === 0) {
-      configControls.sendingFacility?.setValue("ABBOTT");
+      configControls.sendingFacility?.setValue("ABCFACILITY");
       configControls.sendingFacility?.disable();
       configControls.sendingApp?.disable();
       configControls.receivingFacility?.enable();
@@ -305,8 +305,8 @@ export class EhrConfigDetailsComponent implements OnDestroy, OnInit {
 
     const sendingAppAlias = abbottConfig?.sendingApp;
     const receivingAppAlias = abbottConfig?.receivingApp;
-    const sendingFacility = abbottConfig?.sendingFacility || "ABBOTT";
-    const receivingFacility = abbottConfig?.receivingFacility || "ABBOTT";
+    const sendingFacility = abbottConfig?.sendingFacility || "ABCFACILITY";
+    const receivingFacility = abbottConfig?.receivingFacility || "ABCFACILITY";
 
     const getAppAlias = (alias: string) =>
       this.getAbbottApp.find((x) => x.displayName === alias)?.aliasName;

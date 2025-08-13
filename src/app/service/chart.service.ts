@@ -35,8 +35,12 @@ export class ChartService {
     this.userProfile = window.sessionStorage.getItem("userProfile")
       ? JSON.parse(window.sessionStorage.getItem("userProfile") as string)
       : null;
+    if (this.userProfile.extension_App == 'HF') {
+      this.appCode = "APP1";
+    } else if (this.userProfile.extension_App == 'CRM') {
+      this.appCode = "APP2";
+    }
 
-    this.appCode = this.userProfile.extension_App;
   }
 
   getPieChartData(date: string): Observable<PieChartData[]> {
@@ -85,7 +89,7 @@ export class ChartService {
     appCode: string,
   ): Observable<DashboardTableDataResponse> {
     return this.http.get<DashboardTableDataResponse>(
-      `${this.apiUrl}/ehr-bam-intg/list?userappcode=${appCode}`,
+      `${this.apiUrl}/ehr-bam-intg/list?userappcode=${this.appCode}`,
     );
   }
 
