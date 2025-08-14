@@ -36,7 +36,7 @@
               />
             </div>
           
-         <span>APP User</span>
+          <span>{{ userProfile.name || "" | uppercase }}</span>
             <button class="sign-out" mat-raised-button (click)="logout()">
               SIGN OUT
             </button>
